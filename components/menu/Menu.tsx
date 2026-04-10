@@ -3,8 +3,8 @@
 const menuHighlights = [
   {
     image: "/company/interior1.png",
-    title: "Omakase - Chef's Choice",
-    desc: "Leave it to the chef — a curated journey of seasonal flavors, prepared with mastery and heart.",
+    title: "Ramen - Signature Bowl",
+    desc: "A refined selection of ramen, crafted with rich broth and premium ingredients for a balanced, satisfying experience.",
   },
   {
     image: "/company/interior1.png",
@@ -275,7 +275,6 @@ export default function Menu() {
       `}</style>
 
       <section className="aj-section">
-
         {/* Header */}
         <div className="aj-header">
           <div className="aj-label">
@@ -285,7 +284,9 @@ export default function Menu() {
           </div>
 
           <h2 className="aj-heading">
-            An <em>Artful</em> Journey Through<br />Japanese Flavors
+            An <em>Artful</em> Journey Through
+            <br />
+            Japanese Flavors
           </h2>
 
           <div className="aj-divider">
@@ -299,11 +300,7 @@ export default function Menu() {
         <div className="aj-grid">
           {menuHighlights.map((item, i) => (
             <div className="aj-card" key={item.title}>
-              <img
-                className="aj-card-img"
-                src={item.image}
-                alt={item.title}
-              />
+              <img className="aj-card-img" src={item.image} alt={item.title} />
               <div className="aj-textbox">
                 <span className="aj-card-number">0{i + 1}</span>
                 <h3 className="aj-card-title">{item.title}</h3>
@@ -313,7 +310,6 @@ export default function Menu() {
             </div>
           ))}
         </div>
-
       </section>
     </>
   );
