@@ -12,7 +12,7 @@ import Banner from "@/components/banner/Banner";
 import Review from "@/components/review/Review";
 import OurChefs from "@/components/chefs/Chefs";
 import Contact from "@/components/contact/Contact";
-import Reservation from "@/components/form/Form";
+// import Reservation from "@/components/form/Form";
 import Footer from "@/components/footer/Footer";
 import "./mainpage.css";
 // import { useState, useEffect, useRef } from "react";
@@ -34,7 +34,7 @@ export default function Home() {
           <Review />
           <OurChefs />
           <Contact />
-          <Reservation />
+          {/* <Reservation /> */}
           <Footer />
           
         </div>

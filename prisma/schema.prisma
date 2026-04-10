@@ -76,3 +76,10 @@ model Payment {
 
   createdAt DateTime @default(now())
 }
+
+model WaitingList {
+  id        Int      @id @default(autoincrement())
+  WaitingNumber Int
+  WaitingStatus String @default("Waiting")
+}
+
