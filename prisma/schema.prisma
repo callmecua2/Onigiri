@@ -41,8 +41,10 @@ model Order {
   items OrderItem[]
 }
 
+
 model OrderItem {
   id      String @id @default(uuid())
+  tableNumber Int
   orderId String
   order   Order  @relation(fields: [orderId], references: [id])
 
@@ -77,9 +79,17 @@ model Payment {
   createdAt DateTime @default(now())
 }
 
+
 model WaitingList {
-  id        Int      @id @default(autoincrement())
-  WaitingNumber Int
-  WaitingStatus String @default("Waiting")
+  id               String   @id @default(cuid())
+  customerName     String?
+  numberOfCustomer Int?
+  waitingNumber    Int      @default(autoincrement())
+  waitingStatus    String   @default("Waiting")
+
+  createdAt        DateTime @default(now())
 }
 
+model Testing {
+  id               String   @id @default(cuid())
+}
