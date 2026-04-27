@@ -1,0 +1,318 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap");
+
+.ow-root {
+  --ow-gold: #c9a84c;
+  --ow-green: #6db97a;
+  --ow-muted: #9a9080;
+  --ow-border: rgba(0, 0, 0, 0.08);
+  --ow-text: #1a1714;
+  --ow-sub: #6b6055;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "DM Sans", sans-serif;
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem 2rem;
+  box-sizing: border-box;
+  font-family: var(--font-sans);
+  color: var(--ow-text);
+  overflow: hidden;
+}
+
+/* ── Top bar ── */
+.ow-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.ow-topbar-left {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.ow-topbar-kanji {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--ow-gold);
+  opacity: 0.6;
+  line-height: 1;
+}
+
+.ow-topbar-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--ow-text);
+}
+
+.ow-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.ow-clock {
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  color: var(--ow-sub);
+  letter-spacing: 0.05em;
+}
+
+.ow-count {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ow-muted);
+  background: rgba(0, 0, 0, 0.05);
+  padding: 0.25rem 0.65rem;
+  border-radius: 2px;
+}
+
+/* ── Divider ── */
+.ow-hr {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+.ow-hr-line {
+  flex: 1;
+  height: 1px;
+  background: var(--ow-border);
+}
+.ow-hr-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--ow-gold);
+  opacity: 0.5;
+}
+
+/* ── Content ── */
+.ow-content {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201, 168, 76, 0.2) transparent;
+}
+
+.ow-content::-webkit-scrollbar {
+  width: 4px;
+}
+.ow-content::-webkit-scrollbar-thumb {
+  background: rgba(201, 168, 76, 0.25);
+  border-radius: 2px;
+}
+
+/* ── Empty state ── */
+.ow-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 0.75rem;
+  opacity: 0.45;
+}
+
+.ow-empty-kanji {
+  font-family: var(--font-serif);
+  font-size: 4rem;
+  font-weight: 300;
+  color: var(--ow-gold);
+  line-height: 1;
+}
+
+.ow-empty-text {
+  font-size: 0.85rem;
+  color: var(--ow-sub);
+  letter-spacing: 0.03em;
+}
+
+.ow-empty-text em {
+  font-style: italic;
+  color: var(--ow-gold);
+}
+
+/* ── Grid ── */
+.ow-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.85rem;
+  padding-bottom: 0.5rem;
+}
+
+/* ── Card ── */
+.ow-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 1rem 1rem 1.3rem;
+  border: 1px solid var(--ow-border);
+  background: #fff;
+  overflow: hidden;
+  animation: owFadeUp 0.35s ease both;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.ow-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+  transform: translateY(-1px);
+}
+
+@keyframes owFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Left bar */
+.ow-card-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+}
+
+/* Number */
+.ow-card-number {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.ow-number-label {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ow-muted);
+}
+
+.ow-number-value {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ow-text);
+  letter-spacing: 0.02em;
+}
+
+/* Divider */
+.ow-card-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--ow-border);
+}
+
+/* Items */
+.ow-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.ow-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--ow-sub);
+}
+
+.ow-item-dot {
+  color: var(--ow-gold);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.ow-item-name {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.ow-item-qty {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--ow-muted);
+  letter-spacing: 0.03em;
+}
+
+/* Status */
+.ow-status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.ow-status-kanji {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  font-weight: 400;
+  opacity: 0.55;
+}
+
+.ow-status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  margin-left: auto;
+}
+
+.ow-status-label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── Legend ── */
+.ow-legend {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--ow-border);
+  margin-top: 0.5rem;
+}
+
+.ow-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ow-legend-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.ow-legend-label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ow-muted);
+}

@@ -1,6 +1,5 @@
 membuat waitinglist = selesai
 membuat alur pemesanan = selesai
 membuat alur login employee = selesai
-membuat api cek order aktif
-
-
+membuat api cek order aktif = selesai
+membuat payment = selesai

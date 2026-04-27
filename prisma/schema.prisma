@@ -39,12 +39,14 @@ model Food {
 
 model Order {
   id        String   @id @default(uuid())
+  orderNumber Int         @unique @default(autoincrement())
   createdAt DateTime @default(now())
   tableNumber Int
   status    String
   total     Int
 
   items OrderItem[]
+  payment Payment?
 }
 
 
@@ -63,25 +65,29 @@ model OrderItem {
   createdAt DateTime @default(now())
 }
 
-model PaymentMethod {
-  id   String @id @default(cuid())
-  name String
+// model PaymentMethod {
+//  id   String @id @default(cuid())
+// name String
+//
+//  payment Payment[]
+// }
 
-  payment Payment[]
+enum PaymentType {
+  QRIS
+  TUNAI
 }
 
 model Payment {
-  id      String @id @default(cuid())
-  orderId String
+  id           String      @id @default(cuid())
+  
+  orderId      String @unique
+  order        Order @relation(fields: [orderId], references:[id])
 
-  methodID      String
-  paymentmethod PaymentMethod @relation(fields: [methodID], references: [id])
-
+  method       PaymentType
   amount       Int
   cashReceived Int?
   cashReturned Int?
-
-  createdAt DateTime @default(now())
+  createdAt    DateTime    @default(now())
 }
 
 

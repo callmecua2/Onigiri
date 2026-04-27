@@ -10,8 +10,8 @@ export async function POST(req: NextRequest) {
 
     if(!email || !password || !name) {
         return NextResponse.json(
-            {mesage : "Invalid input"},
-            {status : 401}
+            {message : "Invalid input"},
+            {status : 400}
         )
     }
     
